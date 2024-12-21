@@ -1,0 +1,62 @@
+			Projet big data  :
+
+
+Avec ce projet on vise à démontrer l'utilisation de Hadoop. on a pensé à créer des fichiers csv fictifs qui vont nous aider à exécuter nos codes et avoir le résultat .  Le code source est écrit en Java et utilise Hadoop MapReduce pour traiter les données et produire des résultats.
+
+##Contenu du code #
+
+Le projet comprend les éléments suivants :
+Donnees.java : le code qui implemente les fichiers csv 
+Fichiers CSV : Des fichiers CSV fictifs contenant des données sur les étudiants, les unités d'enseignement (UE) et les notes des étudiants. Les fichiers sont utilisés comme entrée pour les jobs Hadoop. Ils sont crées grace au fichier "donnees" 
+Code Source : Le code Java qui génère les données factices et implémente les jobs MapReduce pour traiter ces données.
+Fichiers Jar : Les fichiers Jar contenant les classes compilées du code source.
+
+##Structure des Fichiers CSV#
+
+Les fichiers CSV sont structurés comme suit :
+
+  notes.csv : Contient les notes des étudiants pour chaque unité d'enseignement.
+voici un apercu : 
+Numero d'etudiant	code_ue	note
+2012000001	S07A001	5
+2012000001	S07A002	20
+2012000001	S07A003	6
+
+   students.csv : Contient les informations sur les étudiants.
+voici un apercu :
+Numero d'etudiant	promotion	nom	prenom	date_naissance	email	telephone	adresse
+2012000001	L2	Nom1	Prenom1	22/08/1983	prenom1.nom1@example.com	1050853967	Adresse1
+2012000002	L1	Nom2	Prenom2	15/06/1998	prenom2.nom2@example.com	1292148613	Adresse2
+2012000003	M1	Nom3	Prenom3	01/08/2005	prenom3.nom3@example.com	1606835293	Adresse3
+
+   ue.csv : Contient les informations sur les unités d'enseignement.
+voici un apercu : code_ue	nom_ue	enseignants
+S07A001	UE1	Prof.61,Prof.4
+S07A002	UE2	Prof.4
+S07A003	UE3	Prof.79
+S07A004	UE4	Prof.76,Prof.4
+
+##Exécution des Jobs Hadoop# :
+
+Voici les commandes pour exécuter les différents jobs Hadoop à partir du terminal :
+
+Pour la deuxième requête : 
+hadoop jar query2.jar bdma.bigdata.ay.AverageNoteMain /Notes /resultat S07/2022
+Pour la troisième requête :
+hadoop jar query3.jar bdma.bigdata.ay.Main /Ue /Notes /resultat S07A001
+Pour la quatrième requête : 
+hadoop jar query4.jar bdma.bigdata.ay.Main /Ue /Notes /resultat Prof.4
+
+Une fois que les jobs Hadoop ont terminé leur exécution, les résultats seront stockés dans le répertoire de sortie spécifié.  Qu'on peut consulter sur "localhost:9870" comme ca on peut voir nos resultats de chaque requete comme demandé .
+
+##Classe java pour chaque requete #
+
+Pour chaque requête, quatre classes Java sont créées, chacune contenant :
+Un Mapper
+Un Reducer
+Un Driver
+Une classe Main qui exécute les autres classes.
+
+	
+
+
